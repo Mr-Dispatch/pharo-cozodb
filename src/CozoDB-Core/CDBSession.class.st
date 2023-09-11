@@ -64,6 +64,7 @@ CDBSession >> backupTo: path [
 { #category : #closing }
 CDBSession >> close [
 
+	handle ifNil: [ self error: 'session already closed' ].
 	library cozoClose: handle.
 	handle := nil
 ]
@@ -120,6 +121,18 @@ CDBSession >> library: anObject [
 CDBSession >> restoreFrom: path [
 
 	^ library restoreSession: handle fromPath: path
+]
+
+{ #category : #querying }
+CDBSession >> runImmutableQuery: query [
+
+	^ self runQuery: query withParameters: nil immutable: true
+]
+
+{ #category : #querying }
+CDBSession >> runMutableQuery: query [
+
+	^ self runQuery: query withParameters: nil immutable: false
 ]
 
 { #category : #querying }

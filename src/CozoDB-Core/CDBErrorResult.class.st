@@ -21,7 +21,7 @@ CDBErrorResult class >> fromDictionary: dict [
 	inst := self new.
 
 	self instVarNames do: [ :vName |
-		inst instVarNamed: vName put: (dict at: vName) ].
+		inst instVarNamed: vName put: (dict at: vName ifAbsent: [ nil ]) ].
 
 	^ inst
 ]

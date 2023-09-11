@@ -2,8 +2,8 @@ Class {
 	#name : #CDBResultSet,
 	#superclass : #CDBResult,
 	#instVars : [
-		'headers',
-		'rows'
+		'rows',
+		'columns'
 	],
 	#category : #'CozoDB-Core'
 }
@@ -12,7 +12,7 @@ Class {
 CDBResultSet class >> fromDictionary: dict [ 
 
 	^ self new
-		headers: (dict at: #headers);
+		columns: (dict at: #headers);
 		rows: (dict at: #rows);
 		yourself
 ]
@@ -20,7 +20,7 @@ CDBResultSet class >> fromDictionary: dict [
 { #category : #accessing }
 CDBResultSet >> column: anInteger [
 
-	anInteger > headers size ifTrue: [
+	anInteger > columns size ifTrue: [
 		self error: 'Too big column index' ].
 	^ self rows collect: [ :row | row at: anInteger ]
 ]
@@ -28,21 +28,21 @@ CDBResultSet >> column: anInteger [
 { #category : #accessing }
 CDBResultSet >> columnNamed: aString [
 
-	^ self column: (headers
+	^ self column: (columns
 			   indexOf: aString
 			   ifAbsent: [ self error: 'wrong column name' ])
 ]
 
 { #category : #accessing }
-CDBResultSet >> headers [
+CDBResultSet >> columns [
 
-	^ headers
+	^ columns
 ]
 
 { #category : #accessing }
-CDBResultSet >> headers: anObject [
+CDBResultSet >> columns: anObject [
 
-	headers := anObject
+	columns := anObject
 ]
 
 { #category : #testing }
