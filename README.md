@@ -1,2 +1,27 @@
 # pharo-cozodb
-CozoDB warapper for Pharo Smalltalk
+**A CozoDB wrapper for Pharo Smalltalk**
+
+CozoDB is:
+- emeddable (not necessarilly embedded) database
+- with Datalog as a query language (concise queries)
+- with time-travelling capabilities
+- https://github.com/cozodb/cozo
+
+In working state, fully wrapping the (very minimalistic) C API. Examples / Tests incoming.
+
+Dependencies:
+- NeoJSON (via Pharo Baseline)
+- CozoDB C library
+  - On Windows, from latest stable release (https://github.com/cozodb/cozo/releases)
+  - choose one of the `libcozo_c-<version>-<architecture>-pc-windows-<compiler>-dll.zip` archives
+    - DLLs produced by `msvc` are ~10M smaller compared to `gnu` ones
+  - rename the .dll to libcozo_c.dll and stick it somewhere PharoVM will find it (on PATH, in the VM directory)
+
+Load with:
+
+```Smalltalk
+Metacello new
+  repository: 'github://Mr-Dispatch/pharo-cozodb/src';
+  baseline: 'CozoDB';
+  load.
+```
