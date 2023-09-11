@@ -13,7 +13,7 @@ Dependencies:
 - NeoJSON (via Pharo Baseline)
 - CozoDB C library
   - On Windows, from latest stable release (https://github.com/cozodb/cozo/releases)
-  - choose one of the `libcozo_c-<version>-<architecture>-pc-windows-<compiler>-dll.zip` archives
+  - choose one of the `libcozo_c-<version>-<architecture>-pc-windows-<compiler>.dll.zip` archives
     - DLLs produced by `msvc` are ~10M smaller compared to `gnu` ones
   - rename the .dll to libcozo_c.dll and stick it somewhere PharoVM will find it (on PATH, in the VM directory)
 
