@@ -32,5 +32,5 @@ Small example:
 s := CDBSession openInMemory.
 res := s runQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]' immutable: true.
 res columnNamed: #another.
-l cozoClose: s.
+s close.
 ```
