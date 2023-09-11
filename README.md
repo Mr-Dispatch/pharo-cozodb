@@ -3,6 +3,7 @@
 
 CozoDB is:
 - emeddable (not necessarilly embedded) database
+  - the C lib version / the Pharo wrappers come with SQLite, RocksDB and memory back-ends
 - with Datalog as a query language (concise queries)
 - with time-travelling capabilities
 - https://github.com/cozodb/cozo
