@@ -30,7 +30,7 @@ Metacello new
 Small example:
 ```Smalltalk
 s := CDBSession openInMemory.
-res := s runQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]' immutable: true.
+res := s runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]'.
 (res columnNamed: #another) inspect.
 s close.
 ```
