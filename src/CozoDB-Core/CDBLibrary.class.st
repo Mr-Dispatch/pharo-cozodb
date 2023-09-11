@@ -106,6 +106,12 @@ CDBLibrary >> importRelations: rels onSession: id [
 		  (self cozoImportRelations: rels asString onSession: id)
 ]
 
+{ #category : #'accessing - platform' }
+CDBLibrary >> macLibraryName [ 
+
+	^ 'libcozo_c.so'
+]
+
 { #category : #'accessing - wrapped' }
 CDBLibrary >> openEngine: engine onPath: path withOptions: options [
 	"open cozodb session. either returns session handle, or signals an error"
@@ -145,6 +151,12 @@ CDBLibrary >> runQuery: query onSession: id withParams: params immutable: immuta
 			   onSession: id
 			   withParams: (NeoJSONWriter toString: params2)
 			   immutable: immutable)
+]
+
+{ #category : #'accessing - platform' }
+CDBLibrary >> unixLibraryName [
+
+	^ 'libcozo_c.so'
 ]
 
 { #category : #'accessing - platform' }
