@@ -69,6 +69,13 @@ CDBSession >> close [
 	handle := nil
 ]
 
+{ #category : #'query metadata' }
+CDBSession >> columns: aString [
+	"queries metadata about all stored relation column"
+
+	^ (self runImmutableQuery: '::columns ', aString) fromRowDicts: CDBColumn
+]
+
 { #category : #'import / export' }
 CDBSession >> exportRelations: relations [
 
@@ -115,6 +122,13 @@ CDBSession >> library [
 CDBSession >> library: anObject [
 
 	library := anObject
+]
+
+{ #category : #'query metadata' }
+CDBSession >> relations [
+	"queries metadata about all stored relations"
+
+	^ (self runImmutableQuery: '::relations') fromRowDicts: CDBRelation
 ]
 
 { #category : #'backup / restore' }

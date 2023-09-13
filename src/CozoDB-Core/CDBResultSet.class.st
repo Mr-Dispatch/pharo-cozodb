@@ -45,6 +45,12 @@ CDBResultSet >> columns: anObject [
 	columns := anObject
 ]
 
+{ #category : #'instance creation' }
+CDBResultSet >> fromRowDicts: aClass [
+
+	^ self rowDicts collect: [ :d | aClass fromDictionary: d ]
+]
+
 { #category : #testing }
 CDBResultSet >> isError [
 
@@ -58,6 +64,20 @@ CDBResultSet >> row: anInteger [
 ]
 
 { #category : #accessing }
+CDBResultSet >> rowDict: anInteger [
+
+	^ (columns with: (rows at: anInteger) collect: [ :c :r | c -> r ])
+		  asDictionary
+]
+
+{ #category : #accessing }
+CDBResultSet >> rowDicts [
+
+	^ rows collect: [ :row |
+		  (columns with: row collect: [ :c :r | c -> r ]) asDictionary ]
+]
+
+{ #category : #accessing }
 CDBResultSet >> rows [
 
 	^ rows
@@ -67,4 +87,30 @@ CDBResultSet >> rows [
 CDBResultSet >> rows: anObject [
 
 	rows := anObject
+]
+
+{ #category : #'as yet unclassified' }
+CDBResultSet >> suggestMappings [
+	"helper method, returns array with an instance variables names and associations from snake-case names to camel-case names"
+
+	| mappings |
+	mappings := (columns collect: [ :k |
+		             | parts |
+		             parts := k splitOn: $_.
+
+		             k -> (parts first
+		              ,
+		              ('' join:
+			               (parts allButFirst collect: [ :p | p capitalized ]))) ])
+		            asDictionary.
+	^ Array
+		  with: (' ' join: mappings values)
+		  with: (String crlf join: (mappings associations collect: [ :a |
+					    String streamContents: [ :strm |
+						    strm
+							    nextPut: $#;
+							    nextPutAll: a key;
+							    nextPutAll: ' -> #';
+							    nextPutAll: a value;
+							    nextPut: $. ] ]))
 ]

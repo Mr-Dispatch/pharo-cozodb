@@ -1,6 +1,8 @@
 Class {
 	#name : #CDBErrorResult,
 	#superclass : #CDBResult,
+	#traits : 'TInstVarsFromDictionary',
+	#classTraits : 'TInstVarsFromDictionary classTrait',
 	#instVars : [
 		'causes',
 		'code',
@@ -13,18 +15,6 @@ Class {
 	],
 	#category : #'CozoDB-Core'
 }
-
-{ #category : #'instance creation' }
-CDBErrorResult class >> fromDictionary: dict [
-
-	| inst |
-	inst := self new.
-
-	self instVarNames do: [ :vName |
-		inst instVarNamed: vName put: (dict at: vName ifAbsent: [ nil ]) ].
-
-	^ inst
-]
 
 { #category : #accessing }
 CDBErrorResult >> causes [
