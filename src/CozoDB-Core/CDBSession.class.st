@@ -1,3 +1,10 @@
+"
+I wrap a CozoDB session (an Integer handle, LOL).
+
+I provides means to establish CozoDB sessions (class side, instance-creation category).
+
+I also provide interface (delagate to CDBLibrary instance) for interactiong with CozoDB session (instance side methods).
+"
 Class {
 	#name : #CDBSession,
 	#superclass : #Object,

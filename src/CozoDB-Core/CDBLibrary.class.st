@@ -1,3 +1,6 @@
+"
+I wrap all of the CozoDB C library functions, and introduce some convenience Smalltalk-side wrappers.
+"
 Class {
 	#name : #CDBLibrary,
 	#superclass : #FFILibrary,

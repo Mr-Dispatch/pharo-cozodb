@@ -1,3 +1,6 @@
+"
+I wrap CozoDB stored relation metadata.
+"
 Class {
 	#name : #CDBRelation,
 	#superclass : #CDBFromDictionaryObjectBase,

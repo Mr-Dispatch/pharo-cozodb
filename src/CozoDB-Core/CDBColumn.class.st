@@ -1,3 +1,6 @@
+"
+I wrap CozoDB column info metadata.
+"
 Class {
 	#name : #CDBColumn,
 	#superclass : #CDBFromDictionaryObjectBase,

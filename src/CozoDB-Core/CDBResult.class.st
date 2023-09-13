@@ -1,6 +1,11 @@
+"
+Abstract base class for CozoDB responses (errors, or returned rows).
+"
 Class {
 	#name : #CDBResult,
 	#superclass : #Object,
+	#traits : 'TInstVarsFromDictionary',
+	#classTraits : 'TInstVarsFromDictionary classTrait',
 	#category : #'CozoDB-Core'
 }
 

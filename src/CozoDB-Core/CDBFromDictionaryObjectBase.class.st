@@ -1,3 +1,6 @@
+"
+Abstract base class that - for now - just imports the TInstVarsFromDictionary trait.
+"
 Class {
 	#name : #CDBFromDictionaryObjectBase,
 	#superclass : #Object,

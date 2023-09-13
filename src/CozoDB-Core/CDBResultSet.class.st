@@ -1,3 +1,6 @@
+"
+I wrap a successful CozoDB result (an array of rows + their respective column names).
+"
 Class {
 	#name : #CDBResultSet,
 	#superclass : #CDBResult,
@@ -9,12 +12,11 @@ Class {
 }
 
 { #category : #'instance creation' }
-CDBResultSet class >> fromDictionary: dict [ 
+CDBResultSet class >> fromDictionaryMappings [
 
-	^ self new
-		columns: (dict at: #headers);
-		rows: (dict at: #rows);
-		yourself
+	^ {
+		  (#headers -> #columns).
+		  (#rows -> #rows) }
 ]
 
 { #category : #accessing }

@@ -1,8 +1,9 @@
+"
+I wrap a CozoDB error response.
+"
 Class {
 	#name : #CDBErrorResult,
 	#superclass : #CDBResult,
-	#traits : 'TInstVarsFromDictionary',
-	#classTraits : 'TInstVarsFromDictionary classTrait',
 	#instVars : [
 		'causes',
 		'code',
