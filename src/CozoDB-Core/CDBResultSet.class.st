@@ -45,10 +45,34 @@ CDBResultSet >> columns: anObject [
 	columns := anObject
 ]
 
-{ #category : #'instance creation' }
-CDBResultSet >> fromRowDicts: aClass [
+{ #category : #converting }
+CDBResultSet >> fromRowDict: anInteger as: aClass [
+
+	^ aClass fromDictionary: (self rowDict: anInteger)
+]
+
+{ #category : #converting }
+CDBResultSet >> fromRowDictsAs: aClass [
 
 	^ self rowDicts collect: [ :d | aClass fromDictionary: d ]
+]
+
+{ #category : #controlling }
+CDBResultSet >> ifError: aBlock [
+
+	^ nil
+]
+
+{ #category : #controlling }
+CDBResultSet >> ifError: anErrorBlock ifNotError: aBlock [
+
+	^ aBlock cull: self
+]
+
+{ #category : #controlling }
+CDBResultSet >> ifNotError: aBlock [
+
+	^ aBlock cull: self
 ]
 
 { #category : #testing }
@@ -89,7 +113,7 @@ CDBResultSet >> rows: anObject [
 	rows := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #helpers }
 CDBResultSet >> suggestMappings [
 	"helper method, returns array with an instance variables names and associations from snake-case names to camel-case names"
 

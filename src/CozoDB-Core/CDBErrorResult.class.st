@@ -76,6 +76,24 @@ CDBErrorResult >> help: anObject [
 	help := anObject
 ]
 
+{ #category : #controlling }
+CDBErrorResult >> ifError: aBlock [
+
+	^ aBlock cull: self
+]
+
+{ #category : #controlling }
+CDBErrorResult >> ifError: anErrorBlock ifNotError: aBlock [
+
+	^ anErrorBlock cull: self
+]
+
+{ #category : #controlling }
+CDBErrorResult >> ifNotError: aBlock [
+
+	^ nil
+]
+
 { #category : #testing }
 CDBErrorResult >> isError [
 
