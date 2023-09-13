@@ -2,21 +2,24 @@
 **A CozoDB wrapper for Pharo Smalltalk**
 
 CozoDB is:
-- emeddable (not necessarilly embedded) database
-  - the C lib version / the Pharo wrappers come with SQLite, RocksDB and memory back-ends
+
+- a blending of Relational, Graph & Vector database
+- performant, emeddable (not necessarilly embedded)
+  - the C lib version / the Pharo wrappers come with (built-in) SQLite, RocksDB and memory back-ends
 - with Datalog as a query language (concise queries)
-- with time-travelling capabilities
+- transactional, with time-travelling capabilities
 - https://github.com/cozodb/cozo
 
-In working state, fully wrapping the (very minimalistic) C API. Examples / Tests incoming.
+Tested (developed) on Win10 & Ubuntu 23.04, fully wrapping the (very minimalistic) C API. More examples / tests incoming.
 
 Dependencies:
+
 - NeoJSON (via Pharo Baseline)
 - CozoDB C library
-  - On Windows, from latest stable release (https://github.com/cozodb/cozo/releases)
-  - choose one of the `libcozo_c-<version>-<architecture>-pc-windows-<compiler>.dll.zip` archives
-    - DLLs produced by `msvc` are ~10M smaller compared to `gnu` ones
-  - rename the .dll to libcozo_c.dll and stick it somewhere PharoVM will find it (on PATH, in the VM directory)
+  - from latest stable release (https://github.com/cozodb/cozo/releases)
+  - choose one of the `libcozo_c-<version>-<architecture>-<operating system>-<compiler>.<extension>.zip` archives
+    - Windows DLLs compiled by `msvc` are ~10M smaller compared to `gnu` ones
+  - rename the library to `libcozo_c.<extension>` and stick it somewhere PharoVM will find it (ie. in the correct VM directory)
 
 Load with:
 
@@ -28,6 +31,7 @@ Metacello new
 ```
 
 Small example:
+
 ```Smalltalk
 s := CDBSession openInMemory.
 res := s runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]'.
