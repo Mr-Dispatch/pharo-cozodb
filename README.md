@@ -2,7 +2,7 @@
 
 **A [CozoDB](https://www.cozodb.org) wrapper for Pharo Smalltalk**
 
-[![Unit Tests](https://github.com/astares/pharo-cozodb/workflows/Unit%20Tests/badge.svg?branch=development)](https://github.com/astares/pharo-cozodb/actions?query=workflow%3ABuild)
+[![Unit Tests](https://github.com/astares/pharo-cozodb/workflows/Build/badge.svg?branch=development)](https://github.com/astares/pharo-cozodb/actions?query=workflow%3ABuild)
 [![Coverage Status](https://codecov.io/github/astares/pharo-cozodb/coverage.svg?branch=development)](https://codecov.io/gh/astares/pharo-cozodb/branch/development)
 
 [![Pharo 11](https://img.shields.io/badge/Pharo-11-%23aac9ff.svg)](https://pharo.org/download)
