@@ -21,6 +21,6 @@ CDBBasicFFITest >> testInMemorySessionConnectDisconnect [
 
 	| session |
 	session := CDBSession openInMemory.
-	session close.
+	self assert: session close equals: true. "cozo really closed the descriptor"
 	self assert: session handle equals: nil
 ]

@@ -1,9 +1,11 @@
 "
-I wrap a CozoDB session (an Integer handle, LOL).
+I wrap a CozoDB session (an Integer handle, nice and accessible, sequential => easily forgeable; cool if you forget to close a session as well as if you/someone inject somecode/somevalue).
 
 I provide means to establish CozoDB sessions (class side, instance-creation category).
 
 I also provide interface (delagate to CDBLibrary instance) for interacting with CozoDB session (instance side methods).
+
+A lot of my methods correspond to CozoDB functionality, so library call -> C function name -> CozoDB docs / C lib header file, unless the lazy, no-good author of this library migrated the relevant info.
 "
 Class {
 	#name : #CDBSession,
@@ -70,15 +72,20 @@ CDBSession >> backupTo: path [
 
 { #category : #closing }
 CDBSession >> close [
+	"attempt to close the session, return whether it succeeded.
+    the session handle gets invalidated anyways, as if it wasn't
+    closed, it was invalid anyways."
 
+	| ret |
 	handle ifNil: [ self error: 'session already closed' ].
-	library cozoClose: handle.
-	handle := nil
+	ret := library cozoClose: handle.
+	handle := nil.
+	^ ret
 ]
 
 { #category : #'query metadata' }
 CDBSession >> columns: aString [
-	"queries metadata about all stored relation column"
+	"queries metadata about columns of a stored relation"
 
 	^ (self runImmutableQuery: '::columns ', aString) fromRowDictsAs: CDBColumn
 ]
@@ -151,9 +158,21 @@ CDBSession >> runImmutableQuery: query [
 ]
 
 { #category : #querying }
+CDBSession >> runImmutableQuery: query withParameters: params [
+
+	^ self runQuery: query withParameters: params immutable: true
+]
+
+{ #category : #querying }
 CDBSession >> runMutableQuery: query [
 
 	^ self runQuery: query withParameters: nil immutable: false
+]
+
+{ #category : #querying }
+CDBSession >> runMutableQuery: query withParameters: params [
+
+	^ self runQuery: query withParameters: params immutable: false
 ]
 
 { #category : #querying }
