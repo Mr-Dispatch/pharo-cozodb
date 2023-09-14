@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-CDBResult class >> fromDictionary: dict [
+CDBResult class >> fromResponse: dict [
 
 	^ ((dict at: #ok)
 		   ifTrue: [ CDBResultSet ]

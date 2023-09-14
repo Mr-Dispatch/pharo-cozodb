@@ -3,7 +3,7 @@ I wrap a CozoDB session (an Integer handle, LOL).
 
 I provide means to establish CozoDB sessions (class side, instance-creation category).
 
-I also provide interface (delagate to CDBLibrary instance) for interactiong with CozoDB session (instance side methods).
+I also provide interface (delagate to CDBLibrary instance) for interacting with CozoDB session (instance side methods).
 "
 Class {
 	#name : #CDBSession,
@@ -165,7 +165,7 @@ CDBSession >> runQuery: query immutable: immutable [
 { #category : #querying }
 CDBSession >> runQuery: query withParameters: parameters immutable: immutable [
 
-	^ CDBResult fromDictionary: (library
+	^ CDBResult fromResponse: (library
 			   runQuery: query
 			   onSession: handle
 			   withParams: parameters
