@@ -10,8 +10,9 @@ Class {
 { #category : #running }
 CDBFilesystemBackendTestBase >> setUp [
 
-	self setupDbPath.
-	super setUp
+	super setUp.
+	self setupDbPath
+	
 	
 ]
 
@@ -24,7 +25,7 @@ CDBFilesystemBackendTestBase >> setupDbPath [
 { #category : #running }
 CDBFilesystemBackendTestBase >> tearDown [
 
-	super tearDown.
 	dbPath asFileReference in: [ :path |
-		path exists ifTrue: [ path deleteAll ] ]
+		path exists ifTrue: [ path deleteAll ] ].
+	super tearDown	
 ]
