@@ -25,6 +25,7 @@ BaselineOfCozoDB >> baseline: spec [
 			group: 'Core' with: #( 'CozoDB-Core' );
 			group: 'Tests' with: #( 'CozoDB-Core-Tests' );
 			group: 'Tools' with: #( 'CozoDB-Tools-Pharo' );
+			group: 'CI' with: #( 'Tests' );
 			group: 'all' with: #( 'Core' 'Tests' 'Tools');
 			group: 'default' with: #( 'all' ) ]
 ]
