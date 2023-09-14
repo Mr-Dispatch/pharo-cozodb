@@ -1,8 +1,9 @@
 # pharo-cozodb
 **A [CozoDB](https://www.cozodb.org) wrapper for Pharo Smalltalk**
 
-CozoDB is:
+## CozoDB 
 
+CozoDB is 
 - a blending of Relational, Graph & Vector database
 - performant, emeddable (not necessarilly embedded)
   - the C lib version / the Pharo wrappers come with (built-in) SQLite, RocksDB and memory back-ends
@@ -12,11 +13,11 @@ CozoDB is:
 
 Tested (developed) on Win10 & Ubuntu 23.04, fully wrapping the (very minimalistic) C API. More examples / tests incoming.
 
-Dependencies:
+## Dependencies
 
-- NeoJSON (via Pharo Baseline)
+- [NeoJSON](https://github.com/svenvc/NeoJSON) (via Pharo Baseline)
 - CozoDB C library
-  - from latest stable release (https://github.com/cozodb/cozo/releases)
+  - from latest stable release [https://github.com/cozodb/cozo/releases](https://github.com/cozodb/cozo/releases)
   - choose one of the `libcozo_c-<version>-<architecture>-<operating system>-<compiler>.<extension>.zip` archives
     - Windows DLLs compiled by `msvc` are ~10M smaller compared to `gnu` ones
   - rename the library to `libcozo_c.<extension>` and stick it somewhere PharoVM will find it (ie. in the correct VM directory)
@@ -32,6 +33,7 @@ Metacello new
 
 # Examples
 
+A simple transient query
 ```Smalltalk
 session := CDBSession openInMemory.
 result := session runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]'.
@@ -39,7 +41,7 @@ result := session runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,
 session close.
 ```
 
-
+Creating a relation, putting in some data and querying again
 ```Smalltalk
 session := CDBSession openInMemory.
 
