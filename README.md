@@ -1,6 +1,6 @@
 # pharo-cozodb
 
-**A [CozoDB](https://www.cozodb.org) wrapper for Pharo Smalltalk**
+**A [CozoDB](https://www.cozodb.org) wrapper for [Pharo](https://www.pharo.org) Smalltalk**
 
 [![Unit Tests](https://github.com/astares/pharo-cozodb/workflows/Build/badge.svg?branch=development)](https://github.com/astares/pharo-cozodb/actions?query=workflow%3ABuild)
 [![Coverage Status](https://codecov.io/github/astares/pharo-cozodb/coverage.svg?branch=development)](https://codecov.io/gh/astares/pharo-cozodb/branch/development)
