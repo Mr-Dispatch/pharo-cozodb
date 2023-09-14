@@ -20,3 +20,9 @@ CDBBackendTest >> test1Equals1 [
 	self assert: res columns equals: #( 'a' 'a' ).
 	self assert: res rows equals: #(#( 1 1 ))
 ]
+
+{ #category : #tests }
+CDBBackendTest >> testIsConnected [
+
+	self assert: session isConnected
+]

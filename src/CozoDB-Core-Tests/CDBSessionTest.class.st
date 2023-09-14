@@ -18,6 +18,12 @@ CDBSessionTest >> testCreateRelation [
 	self assert: relations first name equals: 'superclass'
 ]
 
+{ #category : #'tests - relations' }
+CDBSessionTest >> testCreateRelationAsImmutableShouldThrowError [
+
+	self should: [ self session runImmutableQuery: ':create superclass {subclass, superclass}' ] raise: CDBQueryFailed
+]
+
 { #category : #tests }
 CDBSessionTest >> testIsConnected [
 
