@@ -1,5 +1,5 @@
 # pharo-cozodb
-**A CozoDB wrapper for Pharo Smalltalk**
+**A [CozoDB](https://www.cozodb.org) wrapper for Pharo Smalltalk**
 
 CozoDB is:
 
@@ -30,11 +30,28 @@ Metacello new
   load.
 ```
 
-Small example:
+# Examples
 
 ```Smalltalk
-s := CDBSession openInMemory.
-res := s runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]'.
-(res columnNamed: #another) inspect.
-s close.
+session := CDBSession openInMemory.
+result := session runImmutableQuery: '?[column, another] <- [[4,"a"],[5,"b"],[6,"c"]]'.
+(result columnNamed: #another) inspect.
+session close.
+```
+
+
+```Smalltalk
+session := CDBSession openInMemory.
+
+"Create a relation and insert some data"
+session 
+  runMutableQuery: ':create superclass {sub, super}';
+	runMutableQuery: '?[sub, super] <- [[''UndefinedObject'', ''Object'']] :put superclass {sub, super }';
+	runMutableQuery: '?[sub, super] <- [[''TestCase'', ''Object'']] :put superclass {sub, super }'.
+
+"Query the relation (table)"	
+result := self session runImmutableQuery: '?[subclass, superclass] := *superclass[subclass, superclass]'.
+result inspect
+
+esssion close.
 ```
