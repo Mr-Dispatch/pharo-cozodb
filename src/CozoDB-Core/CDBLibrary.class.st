@@ -164,5 +164,6 @@ CDBLibrary >> unixLibraryName [
 
 { #category : #'accessing - platform' }
 CDBLibrary >> win32LibraryName [
+
 	^ 'libcozo_c.dll'
 ]
