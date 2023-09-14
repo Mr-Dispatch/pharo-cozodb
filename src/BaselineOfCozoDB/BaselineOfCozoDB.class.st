@@ -1,7 +1,10 @@
+"
+Pharo wrapper for [CozoDB](https://www.cozodb.org)
+"
 Class {
 	#name : #BaselineOfCozoDB,
 	#superclass : #BaselineOf,
-	#category : #BaselineOfCozoDB
+	#category : #'BaselineOfCozoDB-Base'
 }
 
 { #category : #baselines }
