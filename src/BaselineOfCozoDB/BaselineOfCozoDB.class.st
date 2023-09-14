@@ -18,7 +18,8 @@ BaselineOfCozoDB >> baseline: spec [
 			package: 'CozoDB-Core-Tests' with: [ spec requires: #( 'CozoDB-Core' ) ].
 
 		spec
-			group: 'default' with: #( 'Core' );
 			group: 'Core' with: #( 'CozoDB-Core' );
-			group: 'Tests' with: #( 'CozoDB-Core-Tests' ) ]
+			group: 'Tests' with: #( 'CozoDB-Core-Tests' );
+			group: 'all' with: #( 'Core' 'Tests');
+			group: 'default' with: #( 'all' ) ]
 ]
