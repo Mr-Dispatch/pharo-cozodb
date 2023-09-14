@@ -31,7 +31,6 @@ CDBBackendTestBase >> session: anObject [
 CDBBackendTestBase >> setUp [
 
 	super setUp.
-
 	session := self setupSession
 ]
 
@@ -44,7 +43,8 @@ CDBBackendTestBase >> setupSession [
 { #category : #running }
 CDBBackendTestBase >> tearDown [
 
-	session close
+	session close.
+	super tearDown
 ]
 
 { #category : #tests }
