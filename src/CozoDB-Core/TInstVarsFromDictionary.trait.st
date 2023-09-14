@@ -17,7 +17,7 @@ TInstVarsFromDictionary classSide >> fromDictionary: dict [
 	inst := self new.
 
 	self fromDictionaryMappings do: [ :dictToIvar |
-		dict at: dictToIvar key ifPresent: [ :val | inst at: dictToIvar value put: val ] ].
+		dict at: dictToIvar key ifPresent: [ :val | inst instVarNamed: dictToIvar value put: val ] ].
 	^ inst
 ]
 
