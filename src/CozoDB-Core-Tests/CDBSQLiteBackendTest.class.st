@@ -1,11 +1,11 @@
 Class {
 	#name : #CDBSQLiteBackendTest,
-	#superclass : #CDBFilesystemBackendTestBase,
-	#category : #'CozoDB-Core-Tests'
+	#superclass : #CDBFilesystemBackendTest,
+	#category : #'CozoDB-Core-Tests-Backends'
 }
 
-{ #category : #running }
-CDBSQLiteBackendTest >> setupSession [
+{ #category : #'private - running' }
+CDBSQLiteBackendTest >> createNewSession [
 
-	^ CDBSession openRocksDBOn: dbPath
+	^ CDBSession openRocksDBOn: databasePath
 ]
