@@ -11,7 +11,7 @@ Class {
 		'index',
 		'type'
 	],
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #'instance creation' }

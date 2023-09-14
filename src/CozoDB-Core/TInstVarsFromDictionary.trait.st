@@ -5,7 +5,7 @@ If custom mappings are desired, supply your own fromDictionaryMappings class-sid
 "
 Trait {
 	#name : #TInstVarsFromDictionary,
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Traits'
 }
 
 { #category : #'instance creation' }
