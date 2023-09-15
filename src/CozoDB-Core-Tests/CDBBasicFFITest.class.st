@@ -1,7 +1,7 @@
 Class {
 	#name : #CDBBasicFFITest,
 	#superclass : #TestCase,
-	#category : #'CozoDB-Core-Tests'
+	#category : #'CozoDB-Core-Tests-FFI'
 }
 
 { #category : #tests }

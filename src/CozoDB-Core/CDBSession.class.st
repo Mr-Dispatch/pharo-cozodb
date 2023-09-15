@@ -12,7 +12,7 @@ Class {
 		'handle',
 		'library'
 	],
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #'instance creation' }
@@ -165,9 +165,12 @@ CDBSession >> runQuery: query immutable: immutable [
 { #category : #querying }
 CDBSession >> runQuery: query withParameters: parameters immutable: immutable [
 
-	^ CDBResult fromResponse: (library
-			   runQuery: query
-			   onSession: handle
-			   withParams: parameters
-			   immutable: immutable)
+	| result |
+	result := CDBResult fromResponse: (library
+			           runQuery: query
+			           onSession: handle
+			           withParams: parameters
+			           immutable: immutable).
+	result ifError: [ (CDBQueryFailed queryResult: result) signal ].
+	^ result
 ]

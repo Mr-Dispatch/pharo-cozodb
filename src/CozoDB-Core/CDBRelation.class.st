@@ -15,7 +15,7 @@ Class {
 		'rmTriggers',
 		'accessLevel'
 	],
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #'instance creation' }

@@ -6,7 +6,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TInstVarsFromDictionary',
 	#classTraits : 'TInstVarsFromDictionary classTrait',
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #testing }
