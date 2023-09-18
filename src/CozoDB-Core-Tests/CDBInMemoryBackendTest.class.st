@@ -1,11 +1,5 @@
 Class {
 	#name : #CDBInMemoryBackendTest,
-	#superclass : #CDBBackendTestBase,
-	#category : #'CozoDB-Core-Tests'
+	#superclass : #CDBBackendTest,
+	#category : #'CozoDB-Core-Tests-Backends'
 }
-
-{ #category : #running }
-CDBInMemoryBackendTest >> setupSession [
-
-	^ CDBSession openInMemory
-]

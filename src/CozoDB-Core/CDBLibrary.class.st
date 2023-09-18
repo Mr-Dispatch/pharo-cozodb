@@ -4,7 +4,7 @@ I wrap all of the CozoDB C library functions, and introduce some convenience Sma
 Class {
 	#name : #CDBLibrary,
 	#superclass : #FFILibrary,
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Library'
 }
 
 { #category : #'accessing - wrapped' }
@@ -164,5 +164,6 @@ CDBLibrary >> unixLibraryName [
 
 { #category : #'accessing - platform' }
 CDBLibrary >> win32LibraryName [
+
 	^ 'libcozo_c.dll'
 ]

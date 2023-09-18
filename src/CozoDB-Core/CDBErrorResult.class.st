@@ -14,7 +14,7 @@ Class {
 		'related',
 		'filename'
 	],
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #accessing }

@@ -11,7 +11,7 @@ Class {
 		'index',
 		'type'
 	],
-	#category : #'CozoDB-Core'
+	#category : #'CozoDB-Core-Base'
 }
 
 { #category : #'instance creation' }
@@ -61,6 +61,13 @@ CDBColumn >> index: anObject [
 	index := anObject
 ]
 
+{ #category : #initialization }
+CDBColumn >> initialize [
+
+	super initialize.
+	self column: ''
+]
+
 { #category : #accessing }
 CDBColumn >> isKey [
 
@@ -71,6 +78,12 @@ CDBColumn >> isKey [
 CDBColumn >> isKey: anObject [
 
 	isKey := anObject
+]
+
+{ #category : #printing }
+CDBColumn >> printOn: aStream [
+
+	aStream nextPutAll: self column
 ]
 
 { #category : #accessing }

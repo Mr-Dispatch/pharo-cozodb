@@ -1,13 +1,16 @@
+"
+Pharo wrapper for [CozoDB](https://www.cozodb.org)
+"
 Class {
 	#name : #BaselineOfCozoDB,
 	#superclass : #BaselineOf,
-	#category : #BaselineOfCozoDB
+	#category : #'BaselineOfCozoDB-Base'
 }
 
 { #category : #baselines }
 BaselineOfCozoDB >> baseline: spec [
-
 	<baseline>
+
 	spec for: #common do: [
 		spec
 			baseline: 'NeoJSON'
@@ -15,10 +18,14 @@ BaselineOfCozoDB >> baseline: spec [
 
 		spec
 			package: 'CozoDB-Core' with: [ spec requires: #( 'NeoJSON' ) ];
-			package: 'CozoDB-Core-Tests' with: [ spec requires: #( 'CozoDB-Core' ) ].
+			package: 'CozoDB-Core-Tests' with: [ spec requires: #( 'CozoDB-Core' ) ];
+			package: 'CozoDB-Tools-Pharo' with: [ spec requires: #( 'CozoDB-Core' ) ].
 
 		spec
-			group: 'default' with: #( 'Core' );
 			group: 'Core' with: #( 'CozoDB-Core' );
-			group: 'Tests' with: #( 'CozoDB-Core-Tests' ) ]
+			group: 'Tests' with: #( 'CozoDB-Core-Tests' );
+			group: 'Tools' with: #( 'CozoDB-Tools-Pharo' );
+			group: 'CI' with: #( 'Tests' );
+			group: 'all' with: #( 'Core' 'Tests' 'Tools');
+			group: 'default' with: #( 'all' ) ]
 ]
