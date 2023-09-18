@@ -2,8 +2,8 @@
 
 **A [CozoDB](https://www.cozodb.org) wrapper for [Pharo](https://www.pharo.org) Smalltalk**
 
-[![Unit Tests](https://github.com/Mr-Dispatch/pharo-cozodb/workflows/Build/badge.svg?branch=development)](https://github.com/Mr-Dispatch/pharo-cozodb/actions?query=workflow%3ABuild)
-[![Coverage Status](https://codecov.io/github/Mr-Dispatch/pharo-cozodb/coverage.svg?branch=development)](https://codecov.io/gh/Mr-Dispatch/pharo-cozodb/branch/development)
+[![Unit Tests](https://github.com/Mr-Dispatch/pharo-cozodb/workflows/Build/badge.svg?branch=mian)](https://github.com/Mr-Dispatch/pharo-cozodb/actions?query=workflow%3ABuild)
+[![Coverage Status](https://codecov.io/github/Mr-Dispatch/pharo-cozodb/coverage.svg?branch=main)](https://codecov.io/gh/Mr-Dispatch/pharo-cozodb/branch/main)
 
 [![Pharo 11](https://img.shields.io/badge/Pharo-11-%23aac9ff.svg)](https://pharo.org/download)
 
