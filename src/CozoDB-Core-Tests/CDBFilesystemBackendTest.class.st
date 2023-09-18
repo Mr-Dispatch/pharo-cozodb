@@ -20,15 +20,6 @@ CDBFilesystemBackendTest >> cleanupUsedFiles [
 		path exists ifTrue: [ path deleteAll ] ]
 ]
 
-{ #category : #running }
-CDBFilesystemBackendTest >> setUp [
-
-	super setUp.
-	self setUpDatabasePath
-	
-	
-]
-
 { #category : #'private - running' }
 CDBFilesystemBackendTest >> setUpDatabase [
 
