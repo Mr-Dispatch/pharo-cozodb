@@ -17,7 +17,9 @@ CDBFilesystemBackendTest class >> isAbstract [
 CDBFilesystemBackendTest >> cleanupUsedFiles [
 
 	databasePath asFileReference in: [ :path |
-		path exists ifTrue: [ path deleteAll ] ]
+		path exists
+			ifTrue: [ path deleteAll ]
+			ifFalse: [ self error: 'database was not present after tests' ] ]
 ]
 
 { #category : #'private - running' }
