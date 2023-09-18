@@ -66,5 +66,5 @@ CDBDatabaseTest >> tearDownDatabase [
 { #category : #'private - running' }
 CDBDatabaseTest >> tearDownSession [
 
-	session close
+	self assert: session close equals: true. "cozo really closed the descriptor"
 ]
